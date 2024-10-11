@@ -15,4 +15,9 @@ app.use(express.json())
 
 
 
+// import the routers from the [// * Router foled //]
+import UserRouter from "../src/routers/user.routers.js"
+// ! very import to pass / before api word 
+app.use("/api/v1/users", UserRouter)
+
 export { app }
