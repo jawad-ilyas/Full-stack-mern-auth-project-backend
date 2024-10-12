@@ -7,6 +7,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    uid: {
+        type: String,
+
+    },
 
     password: {
         type: String,
@@ -18,6 +22,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    photoURL: {
+        type: String,
+        default: ""
+    }
 
 }, { timestamps: true })
 
@@ -43,7 +51,7 @@ userSchema.methods.generateAcccessToken = async function () {
             _id: this._id,
             email: this.email,
 
-        },  process.env.ACCCSS_TOKEN_SECRETKEY , { expiresIn: "1d" }
+        }, process.env.ACCCSS_TOKEN_SECRETKEY, { expiresIn: "1d" }
     )
 }
 
