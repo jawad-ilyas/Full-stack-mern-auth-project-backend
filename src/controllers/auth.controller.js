@@ -135,5 +135,12 @@ const google = async (req, res, next) => {
         );
     }
 }
+const logout = async (req, res, next) => {
 
-export { signUp, signIn, google }
+    res.status(200).clearCookie("token").json(
+        new ApiResponse(200 , null , "user is logout ")
+    )
+ 
+}
+
+export { signUp, signIn, google, logout }
